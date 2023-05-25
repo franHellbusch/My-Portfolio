@@ -31,6 +31,7 @@
     margin: 0;
     padding: 0;
     font-family: "Nunito", sans-serif;
+    transition: 0.2s;
 }
 
 a {
@@ -176,7 +177,7 @@ header > nav {
     width: 45px;
     height: 45px;
     margin-left: 10px;
-    transition: 0.3s;
+    transition: transform 0.3s;
     cursor: pointer;
 }
 
@@ -307,11 +308,17 @@ header > nav {
 /* Projects section */
 .projects {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     padding: 3rem 0;
     background: var(--color-background);
+}
+
+.cards-direction {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 800px;
 }
 
 .project-cards {
@@ -323,7 +330,7 @@ header > nav {
     text-align: center;
     border-radius: var(--border-radius-1);
     transition: 0.5s;
-    margin: 1.5rem;
+    margin: 2rem 2.5rem;
 }
 
 .project-cards:hover {
@@ -333,7 +340,7 @@ header > nav {
 
 .project-cards > img {
     width: 100%;
-    border-radius: var(--border-radius-1);
+    border-radius: var(--border-radius-1) var(--border-radius-1) 0 0;
 }
 
 .project-cards > h4 {
@@ -342,7 +349,7 @@ header > nav {
 }
 
 .project-cards > p {
-    font-weight: 500;
+    font-weight: 200;
     font-size: 14px;
     margin: 0 2rem 10px 2rem;
 }
@@ -358,7 +365,7 @@ header > nav {
 .cards-link-icons {
     display: flex;
     align-items: center;
-    padding: 10px 1rem;
+    padding: 10px 1.5rem;
 }
 
 .cards-technologies > svg {
@@ -440,6 +447,11 @@ header > nav {
         height: 240px;
         border-radius: 240px;
     }
+
+    /* projects section */
+    .project-cards {
+        margin: 1.5rem;
+    }
 }
 
 @media (max-width: 764px) {
@@ -505,6 +517,11 @@ header > nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .cards-technologies,
+    .cards-link-icons {
+        padding: 10px 1rem;
     }
 
     .cards-technologies > svg {
