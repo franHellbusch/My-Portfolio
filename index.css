@@ -304,9 +304,9 @@ header > nav {
 /* Projects section */
 .projects {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    height: 100vh;
     padding: 3rem 0;
     background: var(--color-background);
 }
@@ -314,12 +314,13 @@ header > nav {
 .project-cards {
     color: var(--color-dark);
     background: var(--color-white);
-    width: 350px;
+    width: 320px;
     height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px 0px;
     text-align: center;
     border-radius: var(--border-radius-1);
     transition: 0.5s;
+    margin: 1.5rem;
 }
 
 .project-cards:hover {
@@ -378,6 +379,15 @@ header > nav {
 
 .cards-link-icons a:hover {
     transform: scale(1.06);
+}
+
+/* icons */
+.react-icon {
+    fill: #61dbfb;
+}
+
+.node-icon {
+    fill: #3c873a;
 }
 
 @media (max-width: 1024px) {
@@ -471,6 +481,43 @@ header > nav {
         width: 210px;
         height: 210px;
         border-radius: 210px;
+    }
+
+    /* projects section */
+    .project-cards {
+        width: 270px;
+    }
+
+    .project-cards > h4 {
+        font-size: 20px;
+    }
+
+    .project-cards > p {
+        font-size: 13px;
+        margin: 0 1rem 10px 1rem;
+    }
+
+    .project-cards > footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .cards-technologies > svg {
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+    }
+
+    .cards-link-icons svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cards-link-icons a {
+        width: 28px;
+        height: 28px;
     }
 }
 
@@ -680,5 +727,39 @@ header > nav {
         width: 190px;
         height: 190px;
         border-radius: 190px;
+    }
+
+    /* projects section */
+    .project-cards {
+        width: 240px;
+    }
+
+    .project-cards > h4 {
+        font-size: 20px;
+    }
+
+    .project-cards > p {
+        font-size: 12px;
+        margin: 0 10px 10px 10px;
+    }
+
+    .cards-technologies > svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .cards-link-icons,
+    .cards-technologies {
+        padding: 10px;
+    }
+
+    .cards-link-icons svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .cards-link-icons a {
+        width: 26px;
+        height: 26px;
     }
 }
