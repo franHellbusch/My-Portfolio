@@ -11,6 +11,7 @@
     --color-primary-dark: #188f00;
     --color-dark-variant: #677483;
     --color-background: #f6f6f9;
+    --color-background-variant: #ebebeb;
 
     --border-radius-1: 0.4rem;
     --border-radius-2: 0.8rem;
@@ -20,6 +21,7 @@
 /* Dark theme */
 .dark-theme-variables {
     --color-background: #181a1e;
+    --color-background-variant: #1d1f25;
     --color-white: #202528;
     --color-dark: #edeffd;
     --color-dark-intense: #edeffd;
@@ -328,6 +330,8 @@ header > nav > img {
 
 /* Projects section */
 .projects {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -337,6 +341,7 @@ header > nav > img {
 }
 
 .projects > h4 {
+    z-index: 20;
     font-size: 30px;
     font-weight: 700;
     color: var(--color-dark);
@@ -356,6 +361,7 @@ header > nav > img {
 }
 
 .project-cards {
+    z-index: 20;
     color: var(--color-dark);
     background: var(--color-white);
     width: 320px;
@@ -423,6 +429,45 @@ header > nav > img {
 
 .cards-link-icons a:hover {
     transform: scale(1.06);
+}
+
+.projects-background-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    height: 90%;
+}
+
+.projects-background-details > span {
+    display: inline-block;
+    aspect-ratio: 1/1;
+    width: 25%;
+    background: var(--color-background-variant);
+    border-radius: var(--border-radius-3);
+    transform: rotate(60deg);
+    animation: rotation 60s linear infinite;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.projects-background-details > span:nth-child(2) {
+    align-self: flex-end;
+    transform: rotate(-60deg);
+    animation: rotation 50s linear infinite reverse;
+}
+
+.projects-background-details > span:nth-child(3) {
+    transform: rotate(30deg);
+    animation: rotation 80s linear infinite;
 }
 
 /* icons */
@@ -495,6 +540,10 @@ header > nav > img {
 
     .project-cards {
         margin: 1.5rem;
+    }
+
+    .projects-background-details > span {
+        width: 35%;
     }
 }
 
@@ -592,6 +641,9 @@ header > nav > img {
     .cards-link-icons a {
         width: 28px;
         height: 28px;
+    }
+    .projects-background-details > span {
+        width: 40%;
     }
 }
 
@@ -693,11 +745,6 @@ header > nav > img {
         background: linear-gradient(180deg, #ebebeb, #f6f6f9);
     }
 
-    .darkmode-button label,
-    .darkmode-button label:after {
-        transition: 0.4s;
-    }
-
     .nav-menu {
         display: flex;
         flex-direction: column;
@@ -748,6 +795,7 @@ header > nav > img {
     /* Home */
     .home {
         flex-direction: column;
+        background-image: url(./assets/background-light-phone.png);
     }
 
     .home-content {
@@ -846,5 +894,8 @@ header > nav > img {
     .cards-link-icons a {
         width: 26px;
         height: 26px;
+    }
+    .projects-background-details > span {
+        width: 55%;
     }
 }

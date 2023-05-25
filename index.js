@@ -2,15 +2,29 @@ const darkmodeToggle = document.querySelector("#darkmodeToggle");
 
 // change theme
 darkmodeToggle.addEventListener("click", () => {
+    darkmodeToggle.disabled = true;
     document.body.classList.toggle("dark-theme-variables");
     const homeElement = document.querySelector("#home");
     let backgroundImage = getComputedStyle(homeElement).backgroundImage;
-    if (backgroundImage.includes("background-light.png")) {
-        homeElement.style.backgroundImage = "url(./assets/background-dark.png)";
+    if (
+        backgroundImage.includes("background-light.png") ||
+        backgroundImage.includes("background-light-phone.png")
+    ) {
+        screen.width <= 640
+            ? (homeElement.style.backgroundImage =
+                  "url(./assets/background-dark-phone.png)")
+            : (homeElement.style.backgroundImage =
+                  "url(./assets/background-dark.png)");
     } else {
-        homeElement.style.backgroundImage =
-            "url(./assets/background-light.png)";
+        screen.width <= 640
+            ? (homeElement.style.backgroundImage =
+                  "url(./assets/background-light-phone.png)")
+            : (homeElement.style.backgroundImage =
+                  "url(./assets/background-light.png)");
     }
+    setTimeout(() => {
+        darkmodeToggle.disabled = false;
+    }, 200);
 });
 
 // hamburger menu
