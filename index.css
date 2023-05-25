@@ -35,6 +35,7 @@
 
 a {
     text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 header {
@@ -84,6 +85,7 @@ header > nav {
 .darkmode-button {
     display: flex;
     align-items: center;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .darkmode-button label {
@@ -236,6 +238,7 @@ header > nav {
     border-radius: var(--border-radius-1);
     cursor: pointer;
     transition: 0.3s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .home-buttons > button:nth-child(1) {
@@ -567,7 +570,6 @@ header > nav {
         margin: 0;
         padding: 30px 0;
         transition: color 0.3s;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
     .nav-links a:hover {
