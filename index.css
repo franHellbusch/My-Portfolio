@@ -1616,7 +1616,7 @@ header > nav > img {
     }
 
     .input-group > input {
-        width: calc(100% - 15px);
+        width: calc(100% - 20px);
     }
 
     .contact-form > form > button {
