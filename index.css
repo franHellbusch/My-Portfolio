@@ -134,8 +134,7 @@ header > nav > img {
 }
 
 .darkmode-button input:checked + label:after {
-    left: 46px;
-    transform: translateX(-100%);
+    transform: translateX(120%);
     background: linear-gradient(180deg, #ebebeb, #f6f6f9);
 }
 
@@ -163,6 +162,16 @@ header > nav > img {
     position: relative;
     width: fit-content;
     margin-bottom: 5%;
+    animation: opacity 1s ease-out;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .home-content > h3 {
@@ -395,7 +404,7 @@ header > nav > img {
     color: var(--color-dark);
     background: var(--color-white);
     width: 320px;
-    height: fit-content;
+    height: auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px 0px;
     text-align: center;
     border-radius: var(--border-radius-1);
@@ -439,19 +448,19 @@ header > nav > img {
 }
 
 .cards-technologies > svg {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     margin-right: 10px;
 }
 
 .cards-link-icons svg {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 
 .cards-link-icons a {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     margin-left: 10px;
     fill: var(--color-dark);
     transition: 0.3s;
@@ -881,6 +890,25 @@ header > nav > img {
     fill: var(--color-primary);
 }
 
+/* footer */
+.footer-section {
+    color: var(--color-dark-variant);
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-background-variant);
+}
+
+.footer-section > p > a {
+    font-weight: 600;
+    color: var(--color-primary-variant);
+}
+
+.footer-section > p > a:hover {
+    color: var(--color-primary-dark);
+}
+
 @media (max-width: 1024px) {
     header > nav {
         min-width: 86%;
@@ -1290,6 +1318,11 @@ header > nav > img {
         height: 30px;
         margin-right: 5px;
     }
+
+    /* footer */
+    .footer-section > p {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1322,11 +1355,27 @@ header > nav > img {
 
     @keyframes dropdown {
         0% {
-            opacity: 0;
+            opacity {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            :0 ;
             height: 0vh;
         }
         100% {
-            opacity: 1;
+            opacity {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            :1 ;
             height: 90vh;
         }
     }
