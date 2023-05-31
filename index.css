@@ -1607,8 +1607,7 @@ header > nav > img {
 
     .contact-form input,
     .contact-form textarea {
-        font-size: 13px;
-        padding: 8px;
+        font-size: 15px;
         margin: 5px 0;
     }
 
@@ -1621,7 +1620,7 @@ header > nav > img {
     }
 
     .contact-form > form > button {
-        font-size: 13px;
+        font-size: 15px;
         padding: 10px 20px;
         margin-top: 5px;
     }
