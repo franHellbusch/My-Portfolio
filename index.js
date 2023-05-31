@@ -49,3 +49,44 @@ navLinksAnchors.forEach((link) => {
         }
     };
 });
+
+// contact form
+(function () {
+    emailjs.init("JOnUIgvKxSKzm0vzz");
+})();
+
+const contactForm = document.getElementById("contactForm");
+
+window.onload = function () {
+    contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const sendFormButton = document.getElementById("sendFormButton");
+        sendFormButton.disabled = true;
+        sendFormButton.classList.add("clicked-button");
+        const lastChild = contactForm.lastElementChild;
+        const message = document.createElement("span");
+        await emailjs
+            .sendForm("service_n48939a", "template_bcrd4qk", this)
+            .then(
+                function () {
+                    message.className = "success-message";
+                    message.innerHTML =
+                        "Message sent. Please check your email.";
+                    contactForm.insertBefore(message, lastChild);
+                    console.log("SUCCESS!");
+                },
+                function (error) {
+                    message.className = "success-message";
+                    message.innerHTML =
+                        "Error occurred. Please try again later.";
+                    contactForm.insertBefore(message, lastChild);
+                    console.log("FAILED...", error);
+                }
+            );
+        sendFormButton.disabled = false;
+        sendFormButton.classList.remove("clicked-button");
+        setTimeout(() => {
+            contactForm.removeChild(message);
+        }, 4000);
+    });
+};
