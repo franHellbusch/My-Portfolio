@@ -825,9 +825,14 @@ header > nav > img {
     outline: 1px solid var(--color-background-variant);
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form input:valid:not(:placeholder-shown):focus,
+.contact-form textarea:valid:not(:placeholder-shown):focus {
     outline: 1px solid var(--color-primary);
+}
+
+.contact-form input:invalid:not(:placeholder-shown),
+.contact-form textarea:invalid:not(:placeholder-shown) {
+    outline: 1px solid #ff5c5c;
 }
 
 .contact-form > form > button {
@@ -842,8 +847,13 @@ header > nav > img {
     background: var(--color-primary-variant);
     border: 0;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
         rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.clicked-button {
+    background: var(--color-primary-dark);
 }
 
 .contact-form > form > button:hover {
@@ -888,6 +898,24 @@ header > nav > img {
 
 .contact-social-media > a:hover svg {
     fill: var(--color-primary);
+}
+
+.success-message,
+.error-message {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    border-radius: var(--border-radius-1);
+    padding: 10px;
+}
+
+.success-message {
+    color: #20c000;
+    background: #b5ffa7;
+}
+
+.error-message {
+    color: #ff1b1b;
+    background: #ffa9a9;
 }
 
 /* footer */
@@ -1355,27 +1383,11 @@ header > nav > img {
 
     @keyframes dropdown {
         0% {
-            opacity {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
-            :0 ;
+            opacity: 0;
             height: 0vh;
         }
         100% {
-            opacity {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
-            :1 ;
+            opacity: 1;
             height: 90vh;
         }
     }
@@ -1687,6 +1699,11 @@ header > nav > img {
         width: 30px;
         height: 30px;
         margin-right: 2px;
+    }
+
+    .success-message,
+    .error-message {
+        margin: 5px 0;
     }
 }
 
