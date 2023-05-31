@@ -1,8 +1,7 @@
 const darkmodeToggle = document.querySelector("#darkmodeToggle");
 
 // change theme
-darkmodeToggle.addEventListener("click", () => {
-    darkmodeToggle.disabled = true;
+const changeTheme = () => {
     document.body.classList.toggle("dark-theme-variables");
     const homeElement = document.querySelector("#home");
     let backgroundImage = getComputedStyle(homeElement).backgroundImage;
@@ -22,6 +21,23 @@ darkmodeToggle.addEventListener("click", () => {
             : (homeElement.style.backgroundImage =
                   "url(./assets/background-light.png)");
     }
+};
+
+const theme = localStorage.getItem("theme");
+if (theme) {
+    if (theme == "dark") {
+        changeTheme();
+    }
+}
+
+darkmodeToggle.addEventListener("click", () => {
+    darkmodeToggle.disabled = true;
+    if (localStorage.getItem("theme") == "dark") {
+        localStorage.setItem("theme", "light");
+    } else {
+        localStorage.setItem("theme", "dark");
+    }
+    changeTheme();
     setTimeout(() => {
         darkmodeToggle.disabled = false;
     }, 200);
